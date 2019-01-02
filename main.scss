@@ -1,12 +1,88 @@
-.wrapper{
-    width: 200px;
-    height: 200px;
-    background-color: red;
-    
-    p{
-        color: orange;
-        font-size: 30px;
+/*.wrapper{
+  .main{
+      .container{
+          .article{
+              .post{
+                  p{
+                      color:blue;
+                  }
+              }
+          }
+      }
+  }
+}
+ deep nesting - poor coding practice - avoid if possible*/
+ 
+/*Using the parent selector*/
+/*.main{
+    .wrapper &{
+        background-color:yellow;
+        width: 300px;
+        height: 300px;
+    }
+}*/
+/*
+p{
+    .post &{
+        color:blue;
+    }
+}*/
+
+/*SASSscript using functions
+@function pxToEm($value, $base){
+    @return ($value/$base) + em;
+}
+
+h1{
+    font-size: pxToEm(32,16);
+}*/
+
+/*MIXIN CHALLENGE*/
+/*Write a mixin called box. It accepts two arguments: size and background-color. 
+The size should be set to width and height should be half of the size. 
+Create a box class that will include that mixin. Pass 200px as a value for the size
+and #bada55 color for the background-color property. Generate the css file with the same name as your scss file.
+
+@mixin box($size, $background-color){
+    width:$size;
+    height:$size/2;
+    background-color:$background-color;
+}
+
+.box{
+    @include box(200px, #bada55)
+}*/
+
+
+/*CHALLENGE TWO -SASS*/
+/*Your task is to generate the following CSS classes: .container-1, .container-2, .container-3, .container-4.
+
+You'll find a link to boilerplate files below to help get you started. 
+There is a list of colors in the challenge2.scss file. Each of those classes
+should have one of the colors from the list set as a value for the background-color property.
+Use any of the loops you want!*/
+
+$class-name:container;
+@for $i from 1 through 4{
+    .#{$class-name}-#{$i}{
+        @if $i == 1{
+            background-color:#aaa;
+        }@else if $i == 2{
+            background-color:#bbb;
+        }@else if $i==3{
+            background-color:#ccc;
+        }@else {
+            background-color:#ddd;
+        }
     }
 }
-        
-        
+
+/*ALTERNATIVE SOLUTIONS - PROVIDED BY COURSE
+$colors: #aaa, #bbb, #ccc, #ddd;
+
+@each $color in $colors {
+    $i: index($colors, $color);
+    .container-#{$i} {
+        background-color: $color;
+    }
+}*/
