@@ -60,11 +60,13 @@ and #bada55 color for the background-color property. Generate the css file with 
 You'll find a link to boilerplate files below to help get you started. 
 There is a list of colors in the challenge2.scss file. Each of those classes
 should have one of the colors from the list set as a value for the background-color property.
-Use any of the loops you want!*/
+Use any of the loops you want! */
+/*
 
-$class-name:container;
+$className: container;
+
 @for $i from 1 through 4{
-    .#{$class-name}-#{$i}{
+    .#{$className}-#{$i}{
         @if $i == 1{
             background-color:#aaa;
         }@else if $i == 2{
@@ -75,7 +77,7 @@ $class-name:container;
             background-color:#ddd;
         }
     }
-}
+} */
 
 /*ALTERNATIVE SOLUTIONS - PROVIDED BY COURSE
 $colors: #aaa, #bbb, #ccc, #ddd;
@@ -86,3 +88,70 @@ $colors: #aaa, #bbb, #ccc, #ddd;
         background-color: $color;
     }
 }*/
+
+/*Your challenge is to review a code snippet and improve it. 
+Use the hint tab to access the boilerplate files. Open the file called challenge3.scss.
+Is something wrong with this code? How can we improve it? Is something repetitive? 
+Maybe a straightforward placeholder can help us out...
+
+
+%border{
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.container {
+    @extend %border;
+    width: 1280px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+.wrapper {
+    @extend %border;
+    float: left;x
+    position: relative;
+}
+
+.item {
+    @extend %border;
+    font:{
+        size:14px;
+        family:"Sans Pro", sans-serif;
+        weight:700;
+    }
+}
+
+*/
+
+/*Your challenge is to change the color of all anchor elements that fulfil the following criteria:
+
+The anchor is part of an unordered list
+The anchor has a class called listRight
+The anchor is a child of an element which has a class called container
+The anchor element should change to the color red when a user hovers over it. 
+Use the nesting and the & selector to achieve this effect.
+
+Use the hint tab to access the boilerplate files. The elements you want to target are included in the index.html file.*/
+
+.listRight{
+    .container &{
+        a:hover{
+            color: red;
+        }
+    }
+}
+
+/*in the solution code
+
+.container {
+    .listRight {
+        a {
+          &:hover {
+            color: red;    
+          } 
+        }
+    }
+}
+
+*/
